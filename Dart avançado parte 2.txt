@@ -1,0 +1,71 @@
+/*Interfaces*/
+/*abstract class Presidenciavel { //no dart uma classe normal vira uma interfac, não precisando levar objetivamente este nome
+  void participarEleicao(); //um método sem corpo não utiliza "{}", utilizado em interfaces
+}
+
+class Cidadao {
+  void direitosDeveres(){
+    print("Todo cidadão tem direitos e deveres");
+  }
+}
+
+class Obama extends Cidadao implements Presidenciavel { // implements chama a interface dentro da classe
+  void participarEleicao(){ //a implementação concreta das funções da interface é obrigatória
+    print("Participar da eleição dos Estados Unidos");
+  }
+}
+
+class Pedro extends Cidadao {
+//por ser um cidadão, ele herda os métodos da classe cidadão, mas por não ser um presidenciável não se torna necessário a implementação da referida interface
+}*/
+
+/*Coleções - listas e mapas*/
+/*class Usuario {
+  String nome;
+  int idade;
+  
+  Usuario(this.nome, this.idade);
+}*/
+
+void main() {
+  /*Interfaces*/
+  //Obama obama = Obama();
+  //obama.participarEleicao();
+  
+  /*Coleções - listas e mapas*/
+  /*Listas*/
+  //List<String> frutas = ["Morango","Manga"]; //é possível tipar ou não as listas "List frutas = [""]"
+  /*frutas.add("Melancia"); //é possível utilizar os métodos de "List" para realizar operações com a mesma
+  frutas.insert(0, "Amora"); //com o insert é possível selecionar o indice para inserir um novo dado
+  frutas.removeAt(1); //remove um dado em um index específico*/
+  //print(frutas.contains("Morango")); // true ou false (case sensitive)
+  //print(frutas.length); //retorna a quantidade de itens na lista
+  //print(frutas);
+  //List<Usuario> usuarios = List(); //lista do tipo da classe criada acima
+  /*Usuario usuario = Usuario("Pedro", 23);
+  usuarios.add(usuario);*/
+  /*usuarios.add(Usuario("Pedro", 23)); // é possível instanciar e já adicionar um usuário diretamente
+  usuarios.add(Usuario("Lilian", 51));
+  usuarios.add(Usuario("Rafaela", 21));*/
+  
+  /*for(Usuario usuario in usuarios) { //deve percorrer a lista de objetos para exibir seus valores
+    print("Nome: ${usuario.nome}, Idade: ${usuario.idade}");
+  }*/
+  
+  /*Mapas*/
+  //maps possuem as mesmas funções e operações das listas
+  //listas usam chaves (index) automáticamente gerados (numeros inteiros). com map é possível alterar o tipo destas chaves
+  //Chave -> valor
+  /*Map<String, String> estados = Map(); //deve-se definir o tipo da chave e o tipo do valor
+  estados["SP"] = "São Paulo";
+  estados["MG"] = "Minas Gerais";
+  estados["RJ"] = "Rio de Janeiro";*/
+  Map<dynamic, dynamic> estados = Map(); //chave e valor com um tipo diferente:
+  estados[10] = 60;
+  estados["Morango"] = "Minas Gerais";
+  estados[30] = "Rio de Janeiro";
+  //print(estados); //também funciona
+  estados.forEach(
+    (chave, valor) => print("$chave - $valor") //nomeia-se cada parte do map e chama-se após "=>"
+  );
+}

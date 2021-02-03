@@ -1,0 +1,168 @@
+/*sobrescrita de métodos*/
+/*class Animal {
+  String cor;
+  
+  Animal(this.cor);
+  
+  void dormir(){
+    print("Dormir");
+  }
+  
+  void correr(){
+    print("Correr como um");
+  }
+}
+
+class Cao extends Animal {
+  String corOrelha;
+  
+  Cao(String cor, this.corOrelha) : super(cor); //com o super é possível passar o parâmetro para o construtor da classe pai
+  //Para aferir valores para a classe pai usa-se o tipo do dado, e para a própria class usa-se o this
+  
+  void latir(){
+    print("Latir");
+  }
+  
+  @override
+  void dormir(){
+    print("Dorme cão"); // é possível sobrescrever totalmente uma função da classe pai
+  }
+  
+  @override
+  void correr(){
+    super.correr(); //também é possível reutilizar parametros da classe pai e complementa-los na classe filha
+    print("cão");
+  }
+  
+}
+
+class Passaro extends Animal {
+  String corBico;
+  
+  Passaro(String cor) : super(cor);
+  
+  void voar(){
+    print("Voa");
+  }
+  
+  @override
+  void dormir(){
+    print("Dorme passaro");
+  }
+  
+  @override
+  void correr(){
+    super.correr();
+    print("pássaro");
+  }
+  
+}*/
+
+/*Classes abstratas*/
+/*abstract class Animal { //basta adicionar abstract na frente de class, assim como em outras linguagens
+  String cor;
+  
+  Animal(this.cor);
+  
+  void dormir(){
+    print("Dormir");
+  }
+  
+  void correr(){
+    print("Correr como um");
+  }
+}
+
+class Cao extends Animal {
+  String corOrelha;
+  
+  Cao(String cor, this.corOrelha) : super(cor);
+  
+  void latir(){
+    print("Latir");
+  }
+  
+  @override
+  void dormir(){
+    print("Dorme cão");
+  }
+  
+  @override
+  void correr(){
+    super.correr();
+    print("cão");
+  }
+}*/
+
+/*Modificadores static e final*/
+
+abstract class Animal {
+  String cor;
+  
+  Animal(this.cor);
+  
+  void dormir(){
+    print("Dormir");
+  }
+  
+  void correr(){
+    print("Correr como um");
+  }
+}
+
+class Cao extends Animal {
+  String corOrelha;
+  
+  Cao(String cor, this.corOrelha) : super(cor);
+  
+  void latir(){
+    print("Latir");
+  }
+  
+  @override
+  void dormir(){
+    print("Dorme cão");
+  }
+  
+  @override
+  void correr(){
+    super.correr();
+    print("cão");
+  }
+}
+
+class Configuracoes {
+  static String identificadorApp = "fraseid";
+  
+  static void ConfiguracaoInicial(){
+    print("Executando configurações iniciais");
+  }
+}
+
+void main() {
+  /*Sobrescrita de métodos*/
+  //Assim como no JAVA, utilizasse a anotação @override
+  //Você pode utilizar o "super" para acessar os valores da classe pai, economizando código
+  //Cao cao = Cao("Marrom", "Branca"); //pela ordem do construtor: cor da class "Animal" e cor da class "Cao"
+  //cao.correr();
+  //print(cao.cor);
+  //print(cao.corOrelha);
+  
+  /*Classes abstratas*/
+  /*Animal animal = Animal("Marrom");
+  print(animal.cor);*/ //não pode ser instanciada caso seja abstrata
+  
+  /*Modificadores static e final*/
+  //Configuracoes config = Configuracoes(); //com o modificador de acesso "static" não é mais necessário instanciar a classe para acessar o valor da variável ou um método
+  //print(Configuracoes.identificadorApp); //neste cado, acessa-se o valor apenas indicando a classe antes da variável
+  //Configuracoes.ConfiguracaoInicial(); //ma chamada de métodos também deve-se indicar a classe antes da chamada
+  //Cao cao = Cao("Marrom","Branca");
+  //print(cao.cor);
+  //cao = Cao("Vermelho", "branca"); //instanciando novamente um "cao"
+  //print(cao.cor); // no fim, o mesmo "cao" teria duas configurações diferentes, o que seria impedido com o atributo final
+  final Cao cao = Cao("Marrom","Branca");
+  print(cao.cor);
+  //cao = Cao("Vermelho", "branca"); //instanciando novamente um "cao" gera um erro
+  //print(cao.cor);
+  //O final não precisa ser necessariamente um objeto, pode ser qualquer coisa que interesse
+}
