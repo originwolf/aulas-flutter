@@ -8,19 +8,18 @@ void main() { //obrigatório para a aplicação
       color: Colors.white,
       child: Column(
         children: <Widget>[
-          Text(
-              "Lorem ipsum ",
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 50,
-              fontStyle: FontStyle.italic,
-              fontWeight: FontWeight.normal,
-              letterSpacing: 0,
-              wordSpacing: 0,
-              decoration: TextDecoration.underline,
-              decorationStyle: TextDecorationStyle.solid,
-              decorationColor: Colors.purple
-            ),
+          FlatButton(
+              onPressed: (){
+                print("Botão pressionado");
+              },
+              child: Text(
+                  "Clique aqui",
+                style: TextStyle(
+                  color: Colors.black,
+                  decoration: TextDecoration.none,
+                  fontSize: 20
+                ),
+              )
           )
         ], //children: pode conter vários itens
       ), //child = pode conter apenas um item (column/row);
