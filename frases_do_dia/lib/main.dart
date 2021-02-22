@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +16,24 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  var _frases = [
+    "A Pequena Sereia é ruiva",
+    "A Pequena Sereia é loira",
+    "A Pequena Sereia é morena",
+    "A Pequena Sereia é careca"
+  ];
+
+  var _fraseGerada = "Clique abaixo para gerar uma frase";
+
+  void _gerarFrase(){
+    var numeroSorteado = Random().nextInt(_frases.length);
+
+    setState(() {
+      _fraseGerada = _frases[numeroSorteado];
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +54,7 @@ class _HomeState extends State<Home> {
             children: <Widget>[
               Image.asset("images/logo.png"),
               Text(
-                "Clique abaixo para gerar uma frase",
+                _fraseGerada,
                 textAlign: TextAlign.justify,
                 style: TextStyle(
                     fontSize: 25,
@@ -43,9 +63,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
               RaisedButton(
-                onPressed: (){
-                  print("Funcionando");
-                },
+                onPressed: _gerarFrase,
                 child: Text(
                   "Nova frase",
                   style: TextStyle(
